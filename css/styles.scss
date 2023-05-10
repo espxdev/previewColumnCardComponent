@@ -1,6 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap');
 
+:root{
+    /* Colors Styles */
+    /* Primary */
+    --brigth-orange: hsl(31, 77%, 52%);
+    --dark-cyan: hsl(184, 100%, 22%);
+    --very-dark-cyan: hsl(179, 100%, 13%);
+
+    /* Neutral */
+    --transparent-white: hsla(0, 0%, 100%, 0.75);
+    --very-light-gray: hsl(0, 0%, 95%);
+
+    /* Font Family */
+
+    --lexend-decan: 'Lexend Deca', sans-serif;
+    --big-shoulders: 'Big Shoulders Display', cursive;   
+}
 
 
 
 /* Custom Styles */
 
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 15px;
+  }
+  *, *:before, *:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+body{
+    background-color: var(--very-light-gray);
+    font-family: var(--lexend-decan);
+}
+
+.grid_container{
+    display: grid;
+    height: 100vh;
+    place-content: center;
+    grid-template-columns: repeat(3, 20vw);
+    border-radius: 2rem;
+
+    &_card{
+        height: 70vh;
+        padding: 2rem;
+        color: var(--very-light-gray);
+        
+        &_title{
+            font-family: var(--big-shoulders);
+        }
+
+        &_paragraph{
+            color: var(--transparent-white);
+        }
+
+        &_button{
+            padding: 1rem 2rem;
+            border: 2px solid var(--very-light-gray);
+            background-color: var(--very-light-gray);
+            border-radius: 2rem;
+            position: relative;
+            top: 3rem;
+        }
+    }
+
+    &_card:nth-child(1){
+        background-color: var(--brigth-orange);
+        border-top-left-radius: .5rem;
+        border-bottom-left-radius: .5rem;
+    }
+
+    &_card:nth-child(1) button{
+        color: var(--brigth-orange);
+    }
+
+    &_card:nth-child(2){
+        background-color: var(--dark-cyan);
+
+    }
+    &_card:nth-child(2) button{
+        color: var(--dark-cyan);
+    }
+
+    &_card:nth-child(3){
+        background-color: var(--very-dark-cyan);
+        border-top-right-radius: .5rem;
+        border-bottom-right-radius: .5rem;
+    }
+
+    &_card:nth-child(3) button{
+        color: var(--very-dark-cyan);
+    }
+
+    &_card button:hover{
+        color: var(--transparent-white);
+        background-color: transparent;
+        cursor: pointer;
+    }
+}
+
+
+/* Responsive Design */
+
+@media screen and (max-width: 768px){
+    .grid_container{
+        padding: 1rem;
+        height: auto;
+        grid-template-columns: 80vw;
+
+        &_card:nth-child(1){
+            border-bottom-left-radius: 0;
+            border-top-right-radius: .5rem;
+        }
+
+        &_card:nth-child(3){
+            border-top-right-radius: 0;
+            border-bottom-left-radius: .5rem;
+        }
+    }
+}
